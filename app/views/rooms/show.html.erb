@@ -1,0 +1,9 @@
+<div class="container">
+	<h1><%= @room.title %></h1>
+	<% if @room.image.present? %>
+			        <img src="<%= @room.image.url %>"/>
+			    <% end %>
+				<h3><%= @room.location %></h3>
+				<p>posted by <a href="<%= user_path(@room.user) %>"><%= @room.user.email %></a> <%= time_ago_in_words( @room.created_at ) %> ago </p>
+	 <%= button_to "Delete Room", room_path(@room), :method => :delete , class: "btn btn-danger btn-medium"%>
+</div>

@@ -1,0 +1,25 @@
+<% if @room.errors.any? %>
+    <h2>There were errors saving your room</h2>
+	   <ul>
+	     <% @room.errors.full_messages.each do |msg| %>
+	       <li><%= msg %></li>
+	     <% end %>
+	   </ul>
+<% end %>
+
+
+
+    <%= form_for @room do |f| %>
+        <div>
+            <%= f.label :title, "Title of Room" %><br>
+            <%= f.text_field :title %>
+        <div>
+            <%= f.label :location, "Location" %><br>
+            <%= f.text_field :location %>
+        </div>
+        <div>
+            <%= f.label :image, "Image Filename" %><br>
+            <%= f.file_field :image %>
+        </div>
+        <%= f.submit "Submit" %>
+    <% end %>

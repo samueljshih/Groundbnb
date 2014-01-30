@@ -1,0 +1,12 @@
+<div class="container">
+	<h2><%= @user.email %></h2>
+
+	<% @user.rooms.each do |room| %>
+	    <h3><a href="<%= room_path(room)%>"><%= room.title %></a></h3>
+	    <p>
+			posted by <a href="<%= user_path(room.user) %>"><%= room.user.email %></a> <%= time_ago_in_words( room.created_at ) %> ago 
+	    </p>
+	<% end %>   
+
+
+</div>
